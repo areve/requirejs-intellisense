@@ -23,6 +23,13 @@
 var absBaseUrl = 'C:/Projects/MyProject/Scripts';
 
 !function (window) {
+    
+    // get the absBaseUrl via executing script fileName
+    var filename = intellisense.executingScriptFileName;
+    absBaseUrl = filename
+        .substr(0, filename.lastIndexOf("\\"))
+        .replace(/[\\]+/g, '/');
+    
     // convert arguments from object to array
     // usage, argsToArray(arguments)
     var argsToArray = function (obj) {
